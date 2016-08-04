@@ -1,0 +1,33 @@
+_repo: The-Playboy-of-the-Western-World--A-Comedy-in-Three-Acts_1240
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Synge, J. M. (John Millington)
+    aliases:
+    - Synge, Edmund John Millington
+    - Synge, John Millington
+    birthdate: 1871
+    deathdate: 1909
+    gutenberg_agent_id: '504'
+    url: http://www.gutenberg.org/2009/agents/504
+    wikipedia: http://en.wikipedia.org/wiki/John_Millington_Synge
+description: The story of an Irishman who becomes the town hero after he boasts of
+  murdering his father. The local are more interested in enjoying hist story than
+  condemning his murderous deed. The Playboy of the Western World, was first performed
+  in the Abbey on 26 January 1907. The comedy attracted a hostile reaction from the
+  Irish public and thereafter a riot ensued. Described as "an unmitigated, protracted
+  libel upon Irish peasant men, and worse still upon Irish girlhood".
+gutenberg_issued: '1998-03-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '1240'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Ireland -- Drama'
+- !lcc 'PR'
+- GITenberg
+title: 'The Playboy of the Western World: A Comedy in Three Acts'
+url: http://www.gutenberg.org/ebooks/1240
