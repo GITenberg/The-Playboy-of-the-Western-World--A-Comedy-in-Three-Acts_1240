@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: hCrUdDmp8hE2RuIfDmssayEK8FV6qOgrBARqf4Lj0TGM9QzsuO8qDCDxhvKqn6UalyO83xmKfhWmaQskV1YHY7+ekFEWaOlPMCKq59vWMuipo64rDmBMTo37Dmz2DDb2a0v3aqc+n5Ja+c1T4qjFBXW1SFo/iTUoc/RCrI1lxGalu7aoJ3ohLFycvGf52DngwRjWGsC9WTFgxFts1KWEMPnIIGYXU37jSIXbQcM/eWHE3kQKp3BFgQiyfLZ0h4sZcKZpNinZV29G/OqFnpVCl3OG56MTVFF6MEQU+im7Ux5WSYuhag1kIaUN2tnsw6+aVgLCybByThRYuDGV8g3VdRqwEIDOOzCXWY7qf2AK0wJMTQFDJt9zhEGPaAeloYMbQanauCbGusg6q0aBhOBNPsmdS8w11Mqf4NugHu3ndkVeUMxPmgENoAxQfQyaaJzWVBiqyBP+PvRiODhjzvpcsFhWBdJB0XMdr9BwSYTUEKb40TVh0UCJjCsdh/kTE793gXcevPQPwqa87T44KJo8IyRs9Lqtf8L41DilZsce7m6p1RobHmG+l8XKg8Ogy+Ona3rqGKXGEPrt7gDYr0IB9PZ098w/qrAze5RAxSTE8XFJs4bBYR8c8Bf+SxPTaR/+fSFAQjLN1rThA4FlUr4PaT2zfgPZf4Atsw6geLPuKVo=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Playboy-of-the-Western-World--A-Comedy-in-Three-Acts_1240
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
