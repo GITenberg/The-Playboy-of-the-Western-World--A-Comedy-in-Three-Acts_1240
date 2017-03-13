@@ -1,5 +1,8 @@
 _repo: The-Playboy-of-the-Western-World--A-Comedy-in-Three-Acts_1240
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Synge, J. M. (John Millington)
@@ -17,6 +20,8 @@ description: The story of an Irishman who becomes the town hero after he boasts 
   in the Abbey on 26 January 1907. The comedy attracted a hostile reaction from the
   Irish public and thereafter a riot ensued. Described as "an unmitigated, protracted
   libel upon Irish peasant men, and worse still upon Irish girlhood".
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/1240#The-Playboy-of-the-Western-World--A-Comedy-in-Three-Acts
 gutenberg_issued: '1998-03-01'
 gutenberg_type: Text
 identifiers:
